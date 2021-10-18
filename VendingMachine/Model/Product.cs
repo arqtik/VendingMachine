@@ -5,7 +5,7 @@
         /// <summary>
         /// The name of the product
         /// </summary>
-        public int Name { get; }
+        public string Name { get; }
 
         /// <summary>
         /// The price of the product
@@ -17,7 +17,7 @@
         /// </summary>
         /// <param name="name">The name the product should have</param>
         /// <param name="price">The price of this product</param>
-        protected Product(int name, int price)
+        protected Product(string name, int price)
         {
             Name = name;
             Price = price;
