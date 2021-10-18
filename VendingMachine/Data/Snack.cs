@@ -4,7 +4,7 @@ namespace VendingMachine.Data
 {
     public class Snack : Product
     {
-        public Snack(int name, int price) : base(name, price)
+        public Snack(string name, int price) : base(name, price)
         {
             
         }
