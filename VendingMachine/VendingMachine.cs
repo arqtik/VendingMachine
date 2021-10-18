@@ -42,7 +42,7 @@ namespace VendingMachine
             _products = products;
         }
 
-        public void Purchase(Product product)
+        public void Purchase(int productIndex)
         {
             
         }
@@ -51,9 +51,9 @@ namespace VendingMachine
         {
             StringBuilder sb = new StringBuilder();
 
-            foreach (var product in _products)
+            for (int i = 0; i < _products.Length; i++)
             {
-                sb.Append(product.Name + "\n");
+                sb.Append($"[{i}] {_products[i].Name}\n");
             }
 
             return sb.ToString();
