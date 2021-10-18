@@ -7,7 +7,7 @@ namespace VendingMachine
         /// <summary>
         /// Purchase a product
         /// </summary>
-        public void Purchase(Product product);
+        public void Purchase(int productIndex);
         
         /// <summary>
         /// Shows all products available
