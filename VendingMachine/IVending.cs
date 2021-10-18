@@ -1,11 +1,13 @@
-﻿namespace VendingMachine
+﻿using VendingMachine.Model;
+
+namespace VendingMachine
 {
     public interface IVending
     {
         /// <summary>
         /// Purchase a product
         /// </summary>
-        public void Purchase();
+        public void Purchase(Product product);
         
         /// <summary>
         /// Shows all products available
@@ -15,7 +17,7 @@
         /// <summary>
         /// Add money to the money pool
         /// </summary>
-        public void InsertMoney();
+        public void InsertMoney(int money);
         
         /// <summary>
         /// Returns money left from the transaction in appropriate amount of change.
