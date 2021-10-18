@@ -4,6 +4,11 @@ namespace VendingMachine.Data
 {
     public class Drink : Product
     {
+        public Drink(int name, int price) : base(name, price)
+        {
+            
+        }
+        
         public override string Examine()
         {
             throw new System.NotImplementedException();
