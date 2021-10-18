@@ -22,6 +22,6 @@ namespace VendingMachine
         /// <summary>
         /// Returns money left from the transaction in appropriate amount of change.
         /// </summary>
-        public int EndTransaction();
+        public int[] EndTransaction();
     }
 }
