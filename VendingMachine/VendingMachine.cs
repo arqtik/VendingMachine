@@ -51,8 +51,12 @@ namespace VendingMachine
                 if (product.Price <= MoneyPool)
                 {
                     MoneyPool -= product.Price;
+                    return product;
                 }
-                
+                else
+                {
+                    throw new ArgumentException("There is not enough money in the pool to buy this product");
+                }
             }
             else
             {
