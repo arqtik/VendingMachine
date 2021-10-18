@@ -11,12 +11,12 @@ namespace VendingMachine.Data
 
         public override string Examine()
         {
-            throw new System.NotImplementedException();
+            return $"{Name} is a toy, the price is {Price}.";
         }
 
         public override string Use()
         {
-            throw new System.NotImplementedException();
+            return $"The {Name} looks like a fun toy, you decide to play with it.";
         }
     }
 }
