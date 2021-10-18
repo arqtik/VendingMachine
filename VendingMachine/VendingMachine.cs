@@ -6,7 +6,7 @@ namespace VendingMachine
 {
     public class VendingMachine: IVending
     {
-        private int[] _denominations;
+        private readonly int[] _denominations;
 
         public int MoneyPool { get; private set; }
 
