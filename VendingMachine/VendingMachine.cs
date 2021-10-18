@@ -42,9 +42,22 @@ namespace VendingMachine
             _products = products;
         }
 
-        public void Purchase(int productIndex)
+        public Product Purchase(int productIndex)
         {
-            
+            if (productIndex > 0 && productIndex < _products.Length)
+            {
+                Product product = _products[productIndex];
+
+                if (product.Price <= MoneyPool)
+                {
+                    MoneyPool -= product.Price;
+                }
+                
+            }
+            else
+            {
+                throw new ArgumentException("Product chosen does not exist");
+            }
         }
 
         public string ShowAll()
