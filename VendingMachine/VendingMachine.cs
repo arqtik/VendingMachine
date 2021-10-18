@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
+using VendingMachine.Data;
 using VendingMachine.Model;
 
 namespace VendingMachine
@@ -7,8 +9,10 @@ namespace VendingMachine
     public class VendingMachine: IVending
     {
         private readonly int[] _denominations;
-
+        private Product[] _products;
+        
         public int MoneyPool { get; private set; }
+        
 
         public VendingMachine()
         {
@@ -16,16 +20,43 @@ namespace VendingMachine
             {
                 1, 5, 10, 20, 50, 100, 500, 1000
             };
+
+            _products = new Product[]
+            {
+                new Drink("Kooka-Kohla", 14),
+                new Drink("Water", 8),
+                new Snack("Ehstrellah Chips", 26),
+                new Snack("Lheys Chips", 19),
+                new Toy("Roobiks-Kuub", 53),
+                new Toy("Action Figure", 35)
+            };
+        }
+        
+        public VendingMachine(Product[] products)
+        {
+            _denominations = new []
+            {
+                1, 5, 10, 20, 50, 100, 500, 1000
+            };
+
+            _products = products;
         }
 
         public void Purchase(Product product)
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public string ShowAll()
         {
-            throw new System.NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var product in _products)
+            {
+                sb.Append(product.Name + "\n");
+            }
+
+            return sb.ToString();
         }
 
         public void InsertMoney(int money)
