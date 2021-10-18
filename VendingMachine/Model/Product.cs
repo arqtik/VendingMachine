@@ -12,6 +12,11 @@
         /// </summary>
         public int Price { get; }
 
+        /// <summary>
+        /// Create a new instance of this product
+        /// </summary>
+        /// <param name="name">The name the product should have</param>
+        /// <param name="price">The price of this product</param>
         protected Product(int name, int price)
         {
             Name = name;
