@@ -1,14 +1,21 @@
-﻿using VendingMachine.Model;
+﻿using System;
+using System.Linq;
+using VendingMachine.Model;
 
 namespace VendingMachine
 {
     public class VendingMachine: IVending
     {
-        public int MoneyPool { get; set; }
+        private int[] _denominations;
 
-        public void Purchase()
+        public int MoneyPool { get; private set; }
+
+        public VendingMachine()
         {
-            throw new System.NotImplementedException();
+            _denominations = new []
+            {
+                1, 5, 10, 20, 50, 100, 500, 1000
+            };
         }
 
         public void Purchase(Product product)
@@ -23,12 +30,20 @@ namespace VendingMachine
 
         public void InsertMoney(int money)
         {
-            throw new System.NotImplementedException();
+            if (_denominations.Contains(money))
+            {
+                MoneyPool += money;
+            }
+            else
+            {
+                throw new ArgumentException("Invalid money denomination input");
+            }
         }
 
-        public int EndTransaction()
+        public int[] EndTransaction()
         {
-            throw new System.NotImplementedException();
+            int[] change = new int[0];
+            return change;
         }
     }
 }
