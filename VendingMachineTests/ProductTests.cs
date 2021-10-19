@@ -9,7 +9,7 @@ namespace VendingMachineTests
     public class ProductTests
     {
         /// <summary>
-        /// Our data for testing examination of product. Add new products here to test
+        /// Our data for products. Add new products to test here
         /// </summary>
         public static List<object[]> ProductsToTestData => new List<object[]>
         {
