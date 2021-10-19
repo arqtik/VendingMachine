@@ -70,7 +70,7 @@ namespace VendingMachine
 
             for (int i = 0; i < _products.Length; i++)
             {
-                sb.Append($"[{i}] {_products[i].Name}\n");
+                sb.Append($"[{i}] {_products[i].Name} {_products[i].Price}\n");
             }
 
             return sb.ToString();
