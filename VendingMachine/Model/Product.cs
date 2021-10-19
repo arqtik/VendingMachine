@@ -27,7 +27,10 @@
         /// Examine the products price and info
         /// </summary>
         /// <returns>Returns products price and info</returns>
-        public abstract string Examine();
+        public virtual string Examine()
+        {
+            return $"{Name}: {Price}kr";
+        }
         
         /// <summary>
         /// Use the product

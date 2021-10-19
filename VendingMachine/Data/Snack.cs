@@ -11,12 +11,12 @@ namespace VendingMachine.Data
         
         public override string Examine()
         {
-            return $"{Name} is a snack, the price is {Price}.";
+            return base.Examine() + $"\n{Name} is a snack, it looks delicious!";
         }
 
         public override string Use()
         {
-            return $"The {Name} looks delicious, you decide to eat it.";
+            return $"You eat the {Name}, it was delicious.";
         }
 
     }
