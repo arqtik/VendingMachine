@@ -61,9 +61,9 @@ namespace VendingMachine
         }
         
         /// <summary>
-        /// Shows all of the products available in the vending machine with their index
+        /// Shows all of the products available in the vending machine with their index and price
         /// </summary>
-        /// <returns>Returns a string with all the products and their indexes, could contain multiple lines</returns>
+        /// <returns>Returns a string with all the products, their indexes and price. Could contain multiple lines</returns>
         public string ShowAll()
         {
             StringBuilder sb = new StringBuilder();
