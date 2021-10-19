@@ -45,5 +45,14 @@ namespace VendingMachineTests
                 Assert.Contains(i.ToString(), allProducts);
             }
         }
+
+        [Fact]
+        private void InsertMoneyTest()
+        {
+            _vendingMachine.InsertMoney(10);
+            Assert.Equal(10, _vendingMachine.MoneyPool);
+            _vendingMachine.InsertMoney(500);
+            Assert.Equal(510, _vendingMachine.MoneyPool);
+        }
     }
 }
