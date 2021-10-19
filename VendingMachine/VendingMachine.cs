@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using VendingMachine.Data;
@@ -13,30 +14,12 @@ namespace VendingMachine
         
         public int MoneyPool { get; private set; }
         
-
-        public VendingMachine()
-        {
-            _denominations = new []
-            {
-                1, 5, 10, 20, 50, 100, 500, 1000
-            };
-
-            _products = new Product[]
-            {
-                new Drink("Kooka-Kohla", 14),
-                new Drink("Water", 8),
-                new Snack("Ehstrellah Chips", 26),
-                new Snack("Lheys Chips", 19),
-                new Toy("Roobiks-Kuub", 53),
-                new Toy("Action Figure", 35)
-            };
-        }
         
         public VendingMachine(Product[] products)
         {
             _denominations = new []
             {
-                1, 5, 10, 20, 50, 100, 500, 1000
+                1000, 500, 100, 50, 20, 10, 5, 1
             };
 
             _products = products;
@@ -90,8 +73,21 @@ namespace VendingMachine
 
         public int[] EndTransaction()
         {
-            int[] change = new int[0];
-            return change;
+            List<int> change = new List<int>();
+
+            int moneyToGiveBack = MoneyPool;
+            MoneyPool = 0;
+            
+            for (int i = 0; i < _denominations.Length; i++)
+            {
+                while (moneyToGiveBack >= _denominations[i])
+                {
+                    change.Add(_denominations[i]);
+                    moneyToGiveBack -= _denominations[i];
+                }
+            }
+
+            return change.ToArray();
         }
     }
 }
