@@ -58,13 +58,12 @@ namespace VendingMachineTests
             Assert.Equal(0, _vendingMachine.MoneyPool);
         }
 
-        [Fact]
-        private void EndTransactionTest()
+        [Theory]
+        [InlineData(new int[]{20, 1, 50, 5, 1, 10, 500})]
+        [InlineData(new int[]{1})]
+        [InlineData(new int[]{})]
+        private void EndTransactionTest(int[] expectedChange)
         {
-            int[] expectedChange =
-            {
-                20, 1, 50, 5, 1, 10, 500
-            };
             for (int i = 0; i < expectedChange.Length; i++)
             {
                 _vendingMachine.InsertMoney(expectedChange[i]);
