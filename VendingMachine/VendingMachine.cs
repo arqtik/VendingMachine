@@ -40,7 +40,7 @@ namespace VendingMachine
         /// <exception cref="NotEnoughMoneyException">If not enough money in the money pool to purchase product</exception>
         public Product Purchase(int productIndex)
         {
-            if (productIndex > 0 && productIndex < _products.Length)
+            if (productIndex >= 0 && productIndex < _products.Length)
             {
                 Product product = _products[productIndex];
 
