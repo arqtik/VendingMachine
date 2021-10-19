@@ -1,15 +1,16 @@
 using System;
+using System.Collections.Generic;
 using VendingMachine.Model;
 using VendingMachine.Products;
 using Xunit;
 
 namespace VendingMachineTests
 {
-    public class VendingMachineTests : IDisposable
+    public class VendingMachineTests
     {
         private Product[] _products;
         private VendingMachine.VendingMachine _vendingMachine;
-        
+
         public VendingMachineTests()
         {
             _products = new Product[]
@@ -23,11 +24,7 @@ namespace VendingMachineTests
             };
 
             _vendingMachine = new VendingMachine.VendingMachine(_products);
-        }
-        
-        public void Dispose()
-        {
-            
+
         }
         
         [Fact]
