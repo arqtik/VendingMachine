@@ -28,11 +28,22 @@ namespace VendingMachineTests
         }
         
         [Fact]
-        public void VendingMachineTest()
+        private void VendingMachineTest()
         {
             
         }
 
-        
+        [Fact]
+        private void ShowAllTest()
+        {
+            string allProducts = _vendingMachine.ShowAll();
+            
+            for (int i = 0; i < _products.Length; i++)
+            {
+                Assert.Contains(_products[i].Name, allProducts);
+                Assert.Contains(_products[i].Price.ToString(), allProducts);
+                Assert.Contains(i.ToString(), allProducts);
+            }
+        }
     }
 }
