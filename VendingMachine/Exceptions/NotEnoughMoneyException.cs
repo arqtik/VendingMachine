@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VendingMachine.Model
+namespace VendingMachine.Exceptions
 {
     public class NotEnoughMoneyException : Exception
     {

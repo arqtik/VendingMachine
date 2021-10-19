@@ -1,6 +1,4 @@
-﻿using VendingMachine.Model;
-
-namespace VendingMachine
+﻿namespace VendingMachine.Model
 {
     public interface IVending
     {

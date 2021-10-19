@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using VendingMachine.Data;
+using VendingMachine.Exceptions;
 using VendingMachine.Model;
 
 namespace VendingMachine

@@ -1,6 +1,6 @@
 ﻿using VendingMachine.Model;
 
-namespace VendingMachine.Data
+namespace VendingMachine.Products
 {
     public class Toy : Product
     {
