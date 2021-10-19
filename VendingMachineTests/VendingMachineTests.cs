@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using VendingMachine.Exceptions;
 using VendingMachine.Model;
 using VendingMachine.Products;
 using Xunit;
@@ -26,12 +27,6 @@ namespace VendingMachineTests
             _vendingMachine = new VendingMachine.VendingMachine(_products);
 
         }
-        
-        [Fact]
-        private void VendingMachineTest()
-        {
-            
-        }
 
         [Fact]
         private void ShowAllTest()
@@ -53,6 +48,59 @@ namespace VendingMachineTests
             Assert.Equal(10, _vendingMachine.MoneyPool);
             _vendingMachine.InsertMoney(500);
             Assert.Equal(510, _vendingMachine.MoneyPool);
+        }
+        
+        [Fact]
+        private void InsertMoneyExceptionTest()
+        {
+            ArgumentException e = Assert.Throws<ArgumentException>(() => _vendingMachine.InsertMoney(99));
+            Assert.Equal("Invalid money denomination input", e.Message);
+            Assert.Equal(0, _vendingMachine.MoneyPool);
+        }
+
+        [Fact]
+        private void EndTransactionTest()
+        {
+            int[] expectedChange =
+            {
+                20, 1, 50, 5, 1, 10, 500
+            };
+            for (int i = 0; i < expectedChange.Length; i++)
+            {
+                _vendingMachine.InsertMoney(expectedChange[i]);
+            }
+
+            int[] actualChange = _vendingMachine.EndTransaction();
+
+            Array.Sort(expectedChange);
+            Array.Sort(actualChange);
+            
+            Assert.Equal(expectedChange, actualChange);
+        }
+
+        [Fact]
+        private void PurchaseTest()
+        {
+            _vendingMachine.InsertMoney(50);
+
+            int productIndexToBuy = 2;
+            
+            Product expectedProduct = _products[productIndexToBuy];
+
+            Assert.Same(expectedProduct, _vendingMachine.Purchase(productIndexToBuy));
+        }
+
+        [Fact]
+        private void PurchaseOutOfIndexProductExceptionTest()
+        {
+            ArgumentException ex = Assert.Throws<ArgumentException>(() => _vendingMachine.Purchase(_products.Length));
+            Assert.Equal("Product index chosen does not exist" ,ex.Message);
+        }
+
+        [Fact]
+        private void PurchaseNotEnoughMoneyExceptionTest()
+        {
+            Assert.Throws<NotEnoughMoneyException>(() => _vendingMachine.Purchase(0));
         }
     }
 }
